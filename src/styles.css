@@ -1,0 +1,2145 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap");
+
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
+
+:root {
+  --marfim: #f7f3ec;
+  --marfim-2: #eee7dc;
+  --champagne: #d8c3a5;
+  --dourado: #ad8a54;
+  --dourado-claro: #cdb78f;
+  --preto: #181716;
+  --cinza: #68625b;
+  --branco: #ffffff;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  color: var(--preto);
+  background: var(--marfim);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--marfim);
+  color: var(--preto);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+blockquote,
+figure {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+blockquote,
+.assinatura {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.section {
+  width: 100%;
+  padding: 110px max(28px, calc((100vw - 1180px) / 2));
+}
+
+.section__small,
+.eyebrow {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.68rem;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--dourado);
+}
+
+.section__cabecalho {
+  width: min(100%, 800px);
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.section__cabecalho h2,
+.evento h2,
+.rsvp h2,
+.presentes h2,
+.pix h2 {
+  margin-top: 12px;
+  font-size: clamp(2.7rem, 5vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* =========================================================
+   CAPA DE ENTRADA
+========================================================= */
+
+.entrada {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  width: 100%;
+  height: 100svh;
+
+  overflow: hidden;
+  background: #111;
+}
+
+.entrada__imagem {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 38%;
+
+  animation: zoomEntrada 14s ease-out forwards;
+}
+
+@keyframes zoomEntrada {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.055);
+  }
+}
+
+.entrada__overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.12) 0%,
+      rgba(0, 0, 0, 0.18) 35%,
+      rgba(0, 0, 0, 0.58) 100%
+    );
+}
+
+.entrada__conteudo {
+  position: relative;
+  z-index: 2;
+
+  width: min(1100px, calc(100% - 32px));
+  height: 100%;
+
+  margin: 0 auto;
+  padding: 40px 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding-bottom: clamp(55px, 10vh, 110px);
+
+  text-align: center;
+  color: white;
+}
+
+.entrada__eyebrow {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.nomes {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  max-width: 100%;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.nomes span {
+  color: var(--dourado-claro);
+  font-style: italic;
+}
+
+.nomes--capa {
+  margin-top: 12px;
+
+  font-size: clamp(2.7rem, 7vw, 6.5rem);
+  line-height: 0.95;
+
+  white-space: nowrap;
+
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.4);
+}
+
+.entrada__linha {
+  width: 60px;
+  height: 1px;
+
+  margin: 25px 0 18px;
+
+  background: var(--dourado-claro);
+}
+
+.entrada__data {
+  margin-bottom: 30px;
+
+  font-size: 0.78rem;
+  line-height: 1.5;
+
+  letter-spacing: 0.32em;
+
+  white-space: nowrap;
+}
+
+.botao-entrada {
+  min-height: 54px;
+
+  padding: 0 28px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  background: rgba(20, 20, 20, 0.25);
+  backdrop-filter: blur(12px);
+
+  color: white;
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.botao-entrada:hover {
+  background: white;
+  color: var(--preto);
+  transform: translateY(-2px);
+}
+
+.entrada__musica {
+  margin-top: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 0.64rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   CONVITE
+========================================================= */
+
+.convite {
+  width: 100%;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.convite--aberto {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #111;
+  color: white;
+}
+
+.hero__imagem {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.18) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.72) 100%
+    );
+}
+
+.hero__conteudo {
+  position: relative;
+  z-index: 2;
+
+  width: min(1000px, calc(100% - 40px));
+
+  margin: auto;
+  padding: 150px 0 60px;
+
+  text-align: center;
+
+  min-width: 0;
+}
+
+.hero__eyebrow {
+  color: var(--dourado-claro);
+}
+
+.nomes--hero {
+  width: 100%;
+
+  margin: 14px auto 10px;
+
+  font-size: clamp(3rem, 8vw, 7.5rem);
+  line-height: 0.92;
+
+  white-space: nowrap;
+}
+
+.hero__data {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  font-style: italic;
+
+  line-height: 1.3;
+}
+
+.contador {
+  width: min(540px, 100%);
+
+  margin: 45px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.contador__item {
+  min-width: 0;
+
+  padding: 17px 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contador__item + .contador__item {
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.contador__item strong {
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 1;
+
+  font-weight: 400;
+}
+
+.contador__item span {
+  margin-top: 5px;
+
+  font-size: 0.56rem;
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+
+  white-space: nowrap;
+}
+
+.hero__scroll {
+  margin-top: 50px;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+
+  font-size: 0.55rem;
+}
+
+/* =========================================================
+   MENSAGEM
+========================================================= */
+
+.mensagem {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  text-align: center;
+}
+
+.mensagem > * {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mensagem blockquote {
+  width: min(100%, 800px);
+
+  margin: 38px auto 42px;
+
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1.05;
+
+  font-style: italic;
+  font-weight: 400;
+
+  color: var(--preto);
+
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.mensagem blockquote span {
+  display: block;
+
+  margin-top: 16px;
+
+  font-family: "Montserrat", Arial, sans-serif;
+
+  font-size: 0.61rem;
+  line-height: 1.5;
+
+  font-style: normal;
+
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+
+  color: var(--dourado);
+}
+
+.mensagem__texto {
+  width: 100%;
+  max-width: 680px;
+
+  margin: 0 auto;
+
+  color: var(--cinza);
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: 1.38rem;
+  line-height: 1.7;
+
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.mensagem__texto p + p {
+  margin-top: 20px;
+}
+
+.mensagem .mensagem__final {
+  margin-bottom: 20px;
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.assinatura {
+  margin-top: 42px;
+
+  font-size: 2.3rem;
+  line-height: 1;
+
+  font-style: italic;
+
+  white-space: nowrap;
+}
+
+.assinatura span {
+  color: var(--dourado);
+}
+
+/* =========================================================
+   GALERIA
+========================================================= */
+
+.galeria {
+  background: var(--marfim-2);
+}
+
+.galeria__grid {
+  width: min(100%, 1180px);
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.galeria__item {
+  position: relative;
+
+  grid-column: span 4;
+
+  min-width: 0;
+
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+
+  background: #ddd6cb;
+}
+
+.galeria__item--grande {
+  grid-column: span 8;
+
+  aspect-ratio: 4 / 3;
+}
+
+.galeria__item--horizontal {
+  grid-column: span 8;
+
+  aspect-ratio: 16 / 9;
+}
+
+.galeria__item img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.8s ease;
+}
+
+/* enquadramento individual */
+
+.galeria__item:nth-child(1) img {
+  object-position: center 50%;
+}
+
+.galeria__item:nth-child(2) img {
+  object-position: center 32%;
+}
+
+.galeria__item:nth-child(3) img {
+  object-position: center 35%;
+}
+
+.galeria__item:nth-child(4) img {
+  object-position: center 35%;
+}
+
+.galeria__item:nth-child(5) img {
+  object-position: center 30%;
+}
+
+.galeria__item:nth-child(6) img {
+  object-position: center 35%;
+}
+
+.galeria__item:hover img {
+  transform: scale(1.025);
+}
+
+/* =========================================================
+   EVENTO
+========================================================= */
+
+.evento {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  gap: clamp(45px, 7vw, 100px);
+
+  align-items: center;
+}
+
+.evento__imagem {
+  width: 100%;
+
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+
+  background: var(--marfim-2);
+}
+
+.evento__imagem img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.evento__conteudo {
+  min-width: 0;
+}
+
+.evento__informacoes {
+  margin: 45px 0 35px;
+
+  display: grid;
+
+  gap: 30px;
+}
+
+.evento__info {
+  min-width: 0;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 18px;
+}
+
+.evento__info > div {
+  min-width: 0;
+}
+
+.evento__info svg {
+  flex: 0 0 auto;
+
+  color: var(--dourado);
+}
+
+.evento__info span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--dourado);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.13em;
+
+  font-size: 0.6rem;
+}
+
+.evento__info strong {
+  display: block;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: 1.55rem;
+  line-height: 1.2;
+
+  font-weight: 500;
+
+  word-break: normal;
+}
+
+.evento__info p {
+  margin-top: 7px;
+
+  color: var(--cinza);
+
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.botao {
+  min-height: 52px;
+
+  max-width: 100%;
+
+  padding: 0 23px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  text-align: center;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.1em;
+
+  font-size: 0.64rem;
+  line-height: 1.4;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.botao:hover {
+  transform: translateY(-2px);
+}
+
+.botao--escuro {
+  background: var(--preto);
+  color: white;
+}
+
+.botao--escuro:hover {
+  background: var(--dourado);
+}
+
+.botao--dourado {
+  background: var(--dourado);
+  color: white;
+}
+
+.botao--dourado:hover {
+  background: var(--preto);
+}
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp {
+  background: var(--preto);
+  color: white;
+}
+
+.rsvp__cabecalho {
+  width: min(100%, 650px);
+
+  margin: 0 auto 48px;
+
+  text-align: center;
+}
+
+.rsvp__cabecalho > svg {
+  margin-bottom: 16px;
+
+  color: var(--dourado-claro);
+}
+
+
+
+
+/* =========================================================
+   PRESENTES
+========================================================= */
+
+.presentes {
+  text-align: center;
+}
+
+.presentes > svg {
+  margin-bottom: 16px;
+
+  color: var(--dourado);
+}
+
+.presentes > p:not(.section__small) {
+  width: min(100%, 560px);
+
+  margin: 25px auto 32px;
+
+  color: var(--cinza);
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   PIX
+========================================================= */
+
+.pix {
+  background: var(--marfim-2);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+
+  gap: clamp(40px, 7vw, 80px);
+
+  align-items: center;
+}
+
+.pix__conteudo {
+  min-width: 0;
+}
+
+.pix__conteudo p:last-child {
+  max-width: 520px;
+
+  margin-top: 23px;
+
+  color: var(--cinza);
+
+  line-height: 1.8;
+}
+
+.pix__qrcode {
+  width: 100%;
+
+  padding: 20px;
+
+  background: white;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.07);
+}
+
+.pix__qrcode img {
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   ENCERRAMENTO
+========================================================= */
+
+.encerramento {
+  position: relative;
+
+  width: 100%;
+  min-height: 82svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  color: white;
+
+  text-align: center;
+
+  background: #111;
+}
+
+.encerramento__imagem {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.encerramento__overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.62)
+    );
+}
+
+.encerramento__conteudo {
+  position: relative;
+  z-index: 2;
+
+  width: min(1000px, calc(100% - 32px));
+
+  padding: 70px 16px;
+}
+
+.encerramento__conteudo > svg {
+  color: var(--dourado-claro);
+}
+
+.encerramento__conteudo > p:first-of-type {
+  margin-top: 18px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.16em;
+
+  font-size: 0.64rem;
+  line-height: 1.6;
+}
+
+.nomes--footer {
+  width: 100%;
+
+  margin: 20px auto;
+
+  font-size: clamp(2.7rem, 7vw, 6rem);
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+.encerramento__data {
+  font-size: 0.72rem;
+
+  letter-spacing: 0.28em;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   BOTÃO DE MÚSICA
+========================================================= */
+
+.music-button {
+  position: fixed;
+
+  right: 22px;
+  bottom: 22px;
+
+  z-index: 500;
+
+  width: 50px;
+  height: 50px;
+
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--preto);
+
+  color: white;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 90px 28px;
+  }
+
+  .evento {
+    gap: 45px;
+  }
+
+  .galeria__item {
+    grid-column: span 6;
+  }
+
+  .galeria__item--grande,
+  .galeria__item--horizontal {
+    grid-column: span 12;
+  }
+}
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 700px) {
+  .section {
+    padding: 75px 20px;
+  }
+
+  .section__small,
+  .eyebrow {
+    letter-spacing: 0.17em;
+
+    font-size: 0.62rem;
+  }
+
+  .section__cabecalho {
+    margin-bottom: 35px;
+  }
+
+  .section__cabecalho h2,
+  .evento h2,
+  .rsvp h2,
+  .presentes h2,
+  .pix h2 {
+    font-size: clamp(2.45rem, 11vw, 3.4rem);
+
+    line-height: 1;
+
+    word-break: normal;
+  }
+
+  /* capa */
+
+  .entrada__imagem {
+    object-position: center center;
+  }
+
+  .entrada__conteudo {
+    width: 100%;
+
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-bottom: 55px;
+  }
+
+  .nomes--capa {
+    font-size: clamp(1.8rem, 9.5vw, 3.2rem);
+
+    letter-spacing: -0.035em;
+
+    white-space: nowrap;
+  }
+
+  .entrada__data {
+    font-size: 0.68rem;
+
+    letter-spacing: 0.22em;
+  }
+
+  .botao-entrada {
+    min-height: 52px;
+
+    padding: 0 20px;
+
+    font-size: 0.62rem;
+  }
+
+  .entrada__musica {
+    max-width: 280px;
+
+    font-size: 0.6rem;
+  }
+
+  /* hero */
+
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero__imagem {
+    object-position: center center;
+  }
+
+  .hero__conteudo {
+    width: calc(100% - 28px);
+
+    padding: 120px 0 50px;
+  }
+
+  .nomes--hero {
+    font-size: clamp(1.9rem, 10vw, 3.6rem);
+
+    letter-spacing: -0.04em;
+
+    white-space: nowrap;
+  }
+
+  .hero__data {
+    font-size: 1.15rem;
+  }
+
+  .contador {
+    margin-top: 35px;
+  }
+
+  .contador__item {
+    padding: 14px 2px;
+  }
+
+  .contador__item strong {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+  }
+
+  .contador__item span {
+    font-size: 0.48rem;
+
+    letter-spacing: 0.06em;
+  }
+
+  .hero__scroll {
+    margin-top: 40px;
+  }
+
+  /* mensagem */
+
+  .mensagem blockquote {
+    margin: 30px auto 35px;
+
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .mensagem__texto {
+    font-size: 1.18rem;
+
+    line-height: 1.65;
+  }
+
+  .mensagem .mensagem__final {
+    font-size: 2rem;
+  }
+
+  .assinatura {
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+  }
+
+  /* galeria */
+
+  .galeria__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 7px;
+  }
+
+  .galeria__item,
+  .galeria__item--grande,
+  .galeria__item--horizontal {
+    grid-column: span 1;
+
+    aspect-ratio: 3 / 4;
+  }
+
+  .galeria__item--grande {
+    grid-column: 1 / -1;
+
+    aspect-ratio: 4 / 5;
+  }
+
+  .galeria__item--horizontal {
+    grid-column: 1 / -1;
+
+    aspect-ratio: 4 / 3;
+  }
+
+  .galeria__item img {
+    object-fit: cover;
+  }
+
+  /* evento */
+
+  .evento {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 45px;
+  }
+
+  .evento__imagem {
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+  }
+
+  .evento__imagem img {
+    object-position: center 30%;
+  }
+
+  .evento__conteudo {
+    width: 100%;
+  }
+
+  .evento__informacoes {
+    margin-top: 35px;
+  }
+
+  .evento__info strong {
+    font-size: 1.4rem;
+  }
+
+  /* presentes */
+
+  .presentes .botao {
+    width: min(100%, 330px);
+  }
+
+  /* pix */
+
+  .pix {
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 38px;
+
+    text-align: center;
+  }
+
+  .pix__conteudo p:last-child {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pix__qrcode {
+    width: min(280px, 100%);
+
+    margin: 0 auto;
+
+    padding: 16px;
+  }
+
+  /* encerramento */
+
+  .encerramento {
+    min-height: 75svh;
+  }
+
+  .encerramento__imagem {
+    object-position: center center;
+  }
+
+  .nomes--footer {
+    font-size: clamp(1.9rem, 9.5vw, 3.3rem);
+
+    letter-spacing: -0.035em;
+
+    white-space: nowrap;
+  }
+
+  .encerramento__data {
+    font-size: 0.65rem;
+
+    letter-spacing: 0.2em;
+  }
+
+  .music-button {
+    right: 16px;
+    bottom: 16px;
+
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 390px) {
+  .section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .nomes--capa {
+    font-size: 8.8vw;
+  }
+
+  .nomes--hero {
+    font-size: 9.2vw;
+  }
+
+  .nomes--footer {
+    font-size: 8.8vw;
+  }
+
+  .entrada__data {
+    letter-spacing: 0.16em;
+  }
+
+  .contador__item span {
+    font-size: 0.44rem;
+  }
+
+  .galeria__grid {
+    gap: 5px;
+  }
+
+  .evento__info {
+    gap: 13px;
+  }
+
+  .botao {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+/* =========================================================
+   AJUSTES EXCLUSIVOS PARA DESKTOP
+   Não interfere no mobile
+========================================================= */
+
+@media (min-width: 901px) {
+
+  /* =======================================================
+     HERO
+     Mostra a fotografia inteira, sem cortar os noivos
+  ======================================================= */
+
+  .hero {
+    min-height: 100vh;
+    background: #181716;
+  }
+
+  .hero__imagem {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center center;
+
+    background: #181716;
+  }
+
+  /*
+    Cria um fundo discreto para preencher as laterais
+    quando a proporção da foto não for 16:9.
+  */
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("/assets/foto6.jpeg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(28px);
+    transform: scale(1.08);
+    opacity: 0.35;
+  }
+
+  .hero__imagem {
+    z-index: 1;
+  }
+
+  .hero__overlay {
+    z-index: 1;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.18) 0%,
+        rgba(0, 0, 0, 0.22) 45%,
+        rgba(0, 0, 0, 0.58) 100%
+      );
+  }
+
+  .hero__conteudo {
+    z-index: 2;
+  }
+
+
+  /* =======================================================
+     GALERIA DESKTOP
+     Grade editorial organizada
+  ======================================================= */
+
+  .galeria__grid {
+    width: min(1180px, calc(100% - 80px));
+
+    margin-left: auto;
+    margin-right: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 14px;
+  }
+
+  /*
+    Todas começam com o mesmo comportamento.
+  */
+
+  .galeria__item,
+  .galeria__item--grande,
+  .galeria__item--horizontal {
+    grid-column: auto;
+    grid-row: auto;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    background: #ddd6cb;
+  }
+
+  /*
+    Foto principal ocupa duas colunas.
+  */
+
+  .galeria__item--grande {
+    grid-column: span 2;
+
+    aspect-ratio: 8 / 5;
+  }
+
+  /*
+    Foto horizontal também ocupa duas colunas.
+  */
+
+  .galeria__item--horizontal {
+    grid-column: span 2;
+
+    aspect-ratio: 8 / 5;
+  }
+
+  .galeria__item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+
+  /* Foto 1 */
+
+  .galeria__item:nth-child(1) img {
+    object-position: center center;
+  }
+
+
+  /* Foto 2 */
+
+  .galeria__item:nth-child(2) img {
+    object-position: center center;
+  }
+
+
+  /* Foto 3 */
+
+  .galeria__item:nth-child(3) img {
+    object-position: center center;
+  }
+
+
+  /* Foto 4 */
+
+  .galeria__item:nth-child(4) img {
+    object-position: center center;
+  }
+
+
+  /* Foto 5 */
+
+  .galeria__item:nth-child(5) img {
+    object-position: center center;
+  }
+
+
+  /* Foto 6 */
+
+  .galeria__item:nth-child(6) img {
+    object-position: center center;
+  }
+
+
+  /* =======================================================
+     FOTO DA SEÇÃO "O GRANDE DIA"
+  ======================================================= */
+
+  .evento__imagem {
+    height: auto;
+    aspect-ratio: 4 / 5;
+
+    background: #e9e1d6;
+  }
+
+  .evento__imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: #e9e1d6;
+  }
+
+
+  /* =======================================================
+     ENCERRAMENTO
+     Evita transformar selfie em banner cortado
+  ======================================================= */
+
+  .encerramento {
+    min-height: 100vh;
+
+    background: #181716;
+  }
+
+  .encerramento::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image: url("/assets/foto1.jpeg");
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(30px);
+
+    transform: scale(1.08);
+
+    opacity: 0.4;
+  }
+
+  .encerramento__imagem {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    z-index: 1;
+  }
+
+  .encerramento__overlay {
+    z-index: 2;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.16),
+        rgba(0, 0, 0, 0.55)
+      );
+  }
+
+  .encerramento__conteudo {
+    z-index: 3;
+  }
+}
+/* =========================================================
+   CONFIRMAÇÃO PELO WHATSAPP
+========================================================= */
+
+/* =========================================================
+   CONFIRMAÇÃO PELO WHATSAPP
+========================================================= */
+
+.rsvp {
+  background: var(--preto);
+  color: white;
+
+  text-align: center;
+}
+
+.rsvp__cabecalho {
+  width: min(100%, 760px);
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.rsvp__cabecalho > svg {
+  margin-bottom: 16px;
+
+  color: var(--dourado-claro);
+}
+
+.rsvp__cabecalho > .section__small {
+  margin: 0;
+
+  color: var(--dourado);
+}
+
+.rsvp__cabecalho h2 {
+  margin: 14px auto 0;
+
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  line-height: 1.05;
+
+  font-weight: 400;
+}
+
+.rsvp__cabecalho > p {
+  width: min(100%, 650px);
+
+  margin: 20px auto 0;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.rsvp__cabecalho > p strong {
+  color: white;
+}
+
+
+/* AVISO DO ACOMPANHANTE */
+
+.rsvp__aviso {
+  width: min(100%, 650px);
+
+  margin: 30px auto 34px;
+
+  padding: 24px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  border-top: 1px solid rgba(205, 183, 143, 0.35);
+  border-bottom: 1px solid rgba(205, 183, 143, 0.35);
+}
+
+.rsvp__aviso svg {
+  flex: 0 0 auto;
+
+  color: var(--dourado-claro);
+}
+
+.rsvp__aviso p {
+  width: auto;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 0.82rem;
+  line-height: 1.7;
+
+  text-align: left;
+}
+
+.rsvp__aviso strong {
+  color: white;
+}
+
+
+/* BOTÃO WHATSAPP */
+
+.rsvp__whatsapp {
+  width: auto;
+
+  min-width: 290px;
+
+  margin: 0 auto;
+
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+
+/* =========================================================
+   CONFIRMAÇÃO — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .rsvp__cabecalho {
+    width: 100%;
+  }
+
+  .rsvp__cabecalho h2 {
+    font-size: clamp(2.5rem, 11vw, 3.4rem);
+  }
+
+  .rsvp__cabecalho > p {
+    width: 100%;
+
+    margin-top: 18px;
+
+    font-size: 0.85rem;
+    line-height: 1.65;
+  }
+
+  .rsvp__aviso {
+    width: 100%;
+
+    margin: 26px auto 30px;
+
+    padding: 20px 10px;
+
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .rsvp__aviso p {
+    font-size: 0.78rem;
+    line-height: 1.65;
+
+    text-align: left;
+  }
+
+  .rsvp__whatsapp {
+    width: 100%;
+
+    min-width: 0;
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .rsvp__aviso {
+    width: 100%;
+
+    padding: 20px 12px;
+
+    align-items: flex-start;
+
+    text-align: left;
+  }
+
+  .rsvp__whatsapp {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+}
+/* =========================================================
+   HERO DESKTOP — FUNDO DESFOCADO NAS LATERAIS
+========================================================= */
+
+@media (min-width: 901px) {
+
+  .hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #181716;
+  }
+
+  /* Foto desfocada ocupando toda a tela */
+  .hero::before {
+    content: "";
+
+    position: absolute;
+    inset: -40px;
+
+    z-index: 0;
+
+    background-image: url("/assets/foto6.jpeg");
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(32px);
+    transform: scale(1.12);
+
+    opacity: 0.65;
+  }
+
+  /* Escurece levemente o fundo desfocado */
+  .hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  /* Foto principal inteira */
+  .hero__imagem {
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: transparent;
+  }
+
+  .hero__overlay {
+    z-index: 3;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.08) 0%,
+        rgba(0, 0, 0, 0.12) 45%,
+        rgba(0, 0, 0, 0.5) 100%
+      );
+  }
+
+  .hero__conteudo {
+    position: relative;
+    z-index: 4;
+  }
+}
+
+/* =========================================================
+   GALERIA DESKTOP — 2 COLUNAS / FOTOS INTEIRAS
+   Não altera tablet nem mobile
+========================================================= */
+
+@media (min-width: 901px) {
+
+  .galeria__grid {
+    width: min(1050px, calc(100% - 80px));
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+
+    align-items: start;
+  }
+
+  .galeria__item,
+  .galeria__item--grande,
+  .galeria__item--horizontal {
+    grid-column: auto;
+    grid-row: auto;
+
+    width: 100%;
+    height: auto;
+    min-width: 0;
+
+    aspect-ratio: auto;
+
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .galeria__item img,
+  .galeria__item:nth-child(1) img,
+  .galeria__item:nth-child(2) img,
+  .galeria__item:nth-child(3) img,
+  .galeria__item:nth-child(4) img,
+  .galeria__item:nth-child(5) img,
+  .galeria__item:nth-child(6) img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition: transform 0.6s ease;
+  }
+
+  .galeria__item:hover img {
+    transform: scale(1.01);
+  }
+}
+
+/* =========================================================
+   AJUSTES FINAIS EXCLUSIVOS PARA DESKTOP
+   - Capa sem cortar a fotografia
+   - Galeria em masonry sem espaços verticais
+   - Não altera tablet/mobile
+========================================================= */
+
+@media (min-width: 901px) {
+
+  /* -------------------------------------------------------
+     CAPA DE ENTRADA
+     Mantém a fotografia inteira e preenche as laterais
+     com a própria imagem ampliada e desfocada.
+  ------------------------------------------------------- */
+
+  .entrada {
+    position: fixed;
+    isolation: isolate;
+    overflow: hidden;
+    background: #181716;
+  }
+
+  .entrada::before {
+    content: "";
+    position: absolute;
+    inset: -45px;
+    z-index: 0;
+
+    background-image: url("/assets/capa.jpeg");
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(32px);
+    transform: scale(1.12);
+    opacity: 0.72;
+  }
+
+  .entrada::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: rgba(0, 0, 0, 0.20);
+    pointer-events: none;
+  }
+
+  .entrada__imagem {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: transparent;
+  }
+
+  .entrada__overlay {
+    z-index: 3;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.06) 0%,
+        rgba(0, 0, 0, 0.14) 42%,
+        rgba(0, 0, 0, 0.58) 100%
+      );
+  }
+
+  .entrada__conteudo {
+    position: relative;
+    z-index: 4;
+  }
+
+
+  /* -------------------------------------------------------
+     GALERIA DESKTOP
+     CSS columns cria efeito masonry:
+     fotos inteiras + sem buracos entre linhas.
+  ------------------------------------------------------- */
+
+  .galeria__grid {
+    display: block;
+
+    width: min(1050px, calc(100% - 80px));
+    margin: 0 auto;
+
+    columns: 2;
+    column-gap: 14px;
+  }
+
+  .galeria__item,
+  .galeria__item--grande,
+  .galeria__item--horizontal {
+    display: inline-block;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0 0 14px;
+
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+
+    aspect-ratio: auto;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .galeria__item img,
+  .galeria__item:nth-child(1) img,
+  .galeria__item:nth-child(2) img,
+  .galeria__item:nth-child(3) img,
+  .galeria__item:nth-child(4) img,
+  .galeria__item:nth-child(5) img,
+  .galeria__item:nth-child(6) img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition: transform 0.6s ease;
+  }
+
+  .galeria__item:hover img {
+    transform: scale(1.01);
+  }
+}
+
+/* =========================================================
+   CORAÇÕES FLUTUANTES
+========================================================= */
+
+.coracoes {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 50;
+}
+
+.coracao-flutuante {
+  position: absolute;
+
+  left: var(--left);
+  bottom: -50px;
+
+  font-family: Georgia, serif;
+
+  font-size: var(--size);
+
+  color: #d7b978;
+
+  opacity: 0;
+
+  filter: drop-shadow(
+    0 0 5px rgba(215, 185, 120, 0.12)
+  );
+
+  animation:
+    subir-coracao var(--duration)
+    linear
+    var(--delay)
+    infinite;
+}
+
+@keyframes subir-coracao {
+
+  0% {
+    transform:
+      translateY(0)
+      translateX(0)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.32;
+  }
+
+  40% {
+    transform:
+      translateY(-40vh)
+      translateX(14px)
+      rotate(8deg);
+
+    opacity: 0.25;
+  }
+
+  70% {
+    transform:
+      translateY(-75vh)
+      translateX(-12px)
+      rotate(-6deg);
+
+    opacity: 0.18;
+  }
+
+  100% {
+    transform:
+      translateY(-115vh)
+      translateX(8px)
+      rotate(5deg);
+
+    opacity: 0;
+  }
+}
+
+
+/* Respeita usuários que desativam animações */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .coracoes {
+    display: none;
+  }
+
+}
